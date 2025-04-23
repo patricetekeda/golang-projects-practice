@@ -1,33 +1,36 @@
 package main
 
 import (
-	"fmt"
+	"encoding/json"
+	// "fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
 )
 
-type Course struct {
-	CourseId   string
-	CourseName string
-}
-
-// Method to check if Course is empty
-func (c Course) IsEmpty() bool {
-	if c.CourseId == "" && c.CourseName == "" {
-		fmt.Println("Course is empty")
-		return true	
-	}
-	fmt.Println("Course is not empty")
-	return false
-
-}
 
 func main() {
-	// Initialize a Course instance
-	myCourse := Course{
-		CourseId:   "CS101",
-		CourseName: "Introduction to Computer Science",
+	r := mux.NewRouter()
+	r.HandleFunc("/user", GetUser).Methods("GET")
+
+
+	http.ListenAndServe(":8080", r)
+
+	
+}
+
+func GetUser(w http.ResponseWriter,r *http.Request){
+	
+	user := map[string]string{
+		"id": "1",
+		"name": "John Doe",
 	}
 
-	// Check if it's empty and print result
-	fmt.Println(myCourse.IsEmpty()) // Output: Course is not empty
-	
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	jsonData, err := json.Marshal(user) 
+	if err != nil {
+		panic(err)
+	}
+	w.Write(jsonData)
 }
