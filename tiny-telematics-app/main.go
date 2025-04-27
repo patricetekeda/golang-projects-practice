@@ -15,6 +15,6 @@ func main() {
 	r.HandleFunc("/register", handlers.RegisterCar).Methods("POST")
 	r.HandleFunc("/cars", handlers.ListCars).Methods("GET")
 
-	fmt.Println("Server running at http://localhost:8081")
-	log.Fatal(http.ListenAndServe(":8081", r))
+	fmt.Println("Server running at http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
