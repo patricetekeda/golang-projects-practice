@@ -56,4 +56,17 @@ func main() {
 	fmt.Println("Clothings:", clothings)
 	fmt.Println("Length of Clothings:", len(clothings))
 
+	courses := []string{"Math", "Science", "History", "Art"}
+	fmt.Println("Courses:", courses)
+
+	index := 2
+	// courses = append(courses[:index], courses[index+1:]...) // Remove element at index 2
+	courses = append(courses[:index], courses[index + 1:]... )
+	fmt.Println("Courses after removing element at index 2:", courses)
+
+
+
+	
+
+
 }
