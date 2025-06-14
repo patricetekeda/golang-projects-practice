@@ -1,8 +1,9 @@
 package main
 
-
 import (
 	"fmt"
+	"math/rand"
+	// "time"
 )
 
 
@@ -43,4 +44,28 @@ func main() {
 	}
 
 	fmt.Println("User Type:", result)
+
+	fmt.Println("==============================================")
+	fmt.Println("Switch Case Example")
+
+	// Switch case in golang
+	// Lets create a simple dice game
+	diceNumber := rand.Intn(6) + 1 // Random number between 1 and 6
+	
+	switch diceNumber {
+case 1:
+	fmt.Println("You rolled a 1, try again!")
+case 2:
+	fmt.Println("You rolled a 2, not bad!")
+case 3:
+	fmt.Println("You rolled a 3, good job!")
+case 4:
+	fmt.Println("You rolled a 4, great!")
+case 5:
+	fmt.Println("You rolled a 5, excellent!")
+case 6:
+	fmt.Println("You rolled a 6, amazing roll!")
+}
+
+		
 }
