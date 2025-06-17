@@ -80,6 +80,13 @@ func ParseUrl() {
 	fmt.Println("URL String with Query:", res.String()+"?"+res.RawQuery)
 	fmt.Println("URL String with Fragment:", res.String()+"#"+res.Fragment)
 	fmt.Println("URL String with Path:", res.String()+res.Path)
+
+	fmt.Println("gettig query parameters")
+	qparams := res.Query()
+	for key, value := range qparams {
+		fmt.Printf("Key: %s, Value: %s\n", key, value)
+	}
+	
 }
 
 
