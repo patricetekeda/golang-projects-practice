@@ -21,11 +21,6 @@ type Course struct {
 	Author *Author `json:"author"`
 }
 
-
-// Fake database will be used to store courses in a slice
-var courseDatabase = []Course{}
-
-
 // middleware
 func (c *Course) IsEmpty() bool {
 	// return true if the course is empty
@@ -33,6 +28,8 @@ func (c *Course) IsEmpty() bool {
 }
 
 
+// Fake database will be used to store courses in a slice
+var courseDatabase = []Course{}
 
 func main() {
   // Initialize the course database with some data
