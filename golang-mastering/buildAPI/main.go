@@ -3,63 +3,50 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/patricetekeda/buildAPI/models/courses_model"
+
+	
 )
 
-// Goal is to build a simple API server in go
-// Users will be using this API to access various courses
-type Author struct {
-	FullName string `json:"full_name"`
-	Email string `json:"email"`
-	Website string `json:"website"`
-}
-
-
-type Course struct {
-	ID	string `json:"id"`
-	CourseName string `json:"coursename"`
-	Price int `json:"price"`
-	Author *Author `json:"author"`
-}
-
 // middleware
-func (c *Course) IsEmpty() bool {
+func (c *courses_model.Course) IsEmpty() bool {
 	// return true if the course is empty
 	return c.ID == "" && c.CourseName == "" && c.Price == 0 
 }
 
 
 // Fake database will be used to store courses in a slice
-var courseDatabase = []Course{}
+var courseDatabase = []courses_model.Course{}
 
 func main() {
   // Initialize the course database with some data
-  javascriptCourse := Course {
+  javascriptCourse := courses_model.Course {
 	ID: "1",
 	CourseName: "JavaScript Basics",
 	Price: 100,
-	Author: &Author{
+	Author: &courses_model.Author{
 		FullName: "John Doe",
 		Email: "john@example.com",
 		Website: "https://johndoe.com",
 	},
   }
 
-  goCourse := Course {
+  goCourse := courses_model.Course {
 	ID: "2",
 	CourseName: "Go Programming Basics",
 	Price: 150,
-	Author: &Author{
+	Author: &courses_model.Author{
 		FullName: "Jane Smith",
 		Email: "jane@example.com",
 		Website: "https://janesmith.com",
 	},
   }
 
-  csharpCourse := Course {
+  csharpCourse := courses_model.Course {
 	ID: "3",
 	CourseName: "C# Programming Basics",
 	Price: 120,
-	Author: &Author{
+	Author: &courses_model.Author{
 		FullName: "Alice Johnson",
 		Email: "alice@example.com",
 		Website: "https://alicejohnson.com",
