@@ -1,4 +1,4 @@
-module github.com/patricetekeda/golang-mastering/buildAPI
+module github.com/patricetekeda/buildAPI
 
 go 1.23.2
 
